@@ -16,7 +16,7 @@ After 4 months INSHAALAAH, we will have a complete web application composed by:
 ## Authors
 
 - AMINE SABER <saberamine000@gmail.com>
-- Mohammed Ouadia
+- Mohammed Ouadia <ouadia.mohammed@outlook.de>
 
 
 ## Command Interpreter
