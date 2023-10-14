@@ -7,7 +7,6 @@ from uuid import uuid4
 from datetime import datetime
 
 
-
 class BaseModel:
     """
     BaseModel defines all common
@@ -15,6 +14,7 @@ class BaseModel:
     """
 
     def __init__(self):
+        """initialize BaseModel"""
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.update_at = datetime.now()
