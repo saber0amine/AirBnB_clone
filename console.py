@@ -6,14 +6,19 @@ of the command interpreter
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
+from models.place import Place
+from models.city import City
+from models.state import State
+from models.review import Review
+from models.amenity import Amenity
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
     """Class for the AirBnB command interpreter"""
     prompt = "(hbnb)"
-    classes = ['BaseModel' , 'User']
-
+    classes = ['BaseModel', 'User', 'Place', 'State',
+               'City', 'Amenity', 'Review']
     def do_quit(self, arg):
         """Use it to quit the interpreter"""
         return True
