@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """
-the class BaseModel defines all common
-attributes/methods for other classes
+Defines the base model
 """
-from uuid import uuid4
+import uuid
 from datetime import datetime
 
 
@@ -14,28 +13,27 @@ class BaseModel:
     """
 
     def __init__(self):
-        """initialize BaseModel"""
         self.id = str(uuid4())
         self.created_at = datetime.now()
         self.update_at = datetime.now()
 
     def __str__(self):
-        """this function returns the string representation
-            of an instance
         """
-        return "[{}] ({}) {}".format(
-            self.__class__.__name__, self.id, self.__dir__)
+        String representation when instance is printed
+        """
+        return f"[{type(self).__name__}] ({self.id}) {self.__dict__}"
 
     def save(self):
-        """ updates the public instance attribute updated_at
-            with the current datetime
         """
-        self.update_at = datetime.now()
+        Save updates to an instance
+        """
+        self.__dict__.update({'updated_at': datetime.now()})
+        from .__init__ import storage
+        storage.save()
 
     def to_dict(self):
         """
-        returns a dictionary containing all keys/values
-        of __dict__ of the instance
+        Returns a dictionary representation of an instance
         """
         data = self.__dict__.copy()
         data['__class__'] = self.__class__.__name__
