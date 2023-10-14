@@ -6,20 +6,14 @@ of the command interpreter
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
-from models.place import Place
-from models.city import City
-from models.state import State
-from models.review import Review
-from models.amenity import Amenity
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
     """Class for the AirBnB command interpreter"""
     prompt = "(hbnb)"
-    classes = ['BaseModel', 'User', 'Place', 'State',
-               'City', 'Amenity', 'Review']
     
+
     def do_quit(self, arg):
         """Use it to quit the interpreter"""
         return True
@@ -38,28 +32,12 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif arg == "BaseModel":
             new_instance = BaseModel()
+            new_instance.save()
+            print(new_instance.id)
         
         elif arg == "User":
             new_instance = User()
-        
-        elif arg == "Place":
-            new_instance = Place()
-
-        elif arg == "Review":
-            new_instance = Review()
-
-        elif arg == "City":
-            new_instance = City()
-            
-        elif arg == "Amenity":
-            new_instance = Amenity()
-                       
-            
-        elif arg == "State":
-            new_instance = State()            
-            
-        elif new_instance: 
-            storage.save()
+            new_instance.save()
             print(new_instance.id)
                        
         else:
@@ -72,7 +50,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif arguments[0] in HBNBCommand.classes and arguments[1]:
+        elif arguments[0] == "BaseModel" or arguments[0] =="User" and arguments[1]:
             found = False
             all_objects = storage.all()
             for key, value in all_objects.items():
@@ -92,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif  arguments[0] in HBNBCommand.classes and arguments[1]:
+        elif arguments[0] == "BaseModel" and arguments[1]:
             found = False
             all_objects = storage.all()
             for key, value in all_objects.items():
@@ -111,7 +89,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         result = []
         if len(args) != 0:
-            if args[0] not in  HBNBCommand.classes:
+            if args[0] != "BaseModel":
                 print('** class doesn\'t exist **')
                 return
             else:
@@ -128,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         arguments = arg.split()
         if len(arguments) == 0:
             print("** class name missing **")
-        elif  arguments[0] in HBNBCommand.classes: 
+        elif arguments[0] == "BaseModel" or arguments[0] == "User":
             if len(arguments) == 1:
                 print("** instance id missing **")
             elif len(arguments) == 2:
