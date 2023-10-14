@@ -19,6 +19,7 @@ class HBNBCommand(cmd.Cmd):
     prompt = "(hbnb)"
     classes = ['BaseModel', 'User', 'Place', 'State',
                'City', 'Amenity', 'Review']
+    
     def do_quit(self, arg):
         """Use it to quit the interpreter"""
         return True
@@ -37,12 +38,28 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif arg == "BaseModel":
             new_instance = BaseModel()
-            new_instance.save()
-            print(new_instance.id)
         
         elif arg == "User":
             new_instance = User()
-            new_instance.save()
+        
+        elif arg == "Place":
+            new_instance = Place()
+
+        elif arg == "Review":
+            new_instance = Review()
+
+        elif arg == "City":
+            new_instance = City()
+            
+        elif arg == "Amenity":
+            new_instance = Amenity()
+                       
+            
+        elif arg == "State":
+            new_instance = State()            
+            
+        elif new_instance: 
+            storage.save()
             print(new_instance.id)
                        
         else:
