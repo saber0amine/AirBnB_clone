@@ -45,7 +45,7 @@ class FileStorage:
                 dictofobjs = json.loads(f.read())
                 from models.base_model import BaseModel
                 for key, value in dictofobjs.items():
-                    if value['__class__'] == 'BaseModel' or value['__class__']  == 'User':
+                    if value['__class__'] == 'BaseModel':
                         FileStorage.__objects[key] = BaseModel(**value)
                     elif value['__class__']  == 'User':
                         FileStorage.__objects[key] = User(**value)
