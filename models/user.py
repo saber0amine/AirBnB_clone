@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""class User inherits from BaseModel"""
+"""Class User inherits from BaseModel"""
 from models.base_model import BaseModel
 
 
 class User(BaseModel):
-    """class User that inherits from BaseModel"""
+    """Class User that inherits from BaseModel"""
 
     email = ""
     password = ""
-    fifrst_name = ""
+    first_name = ""
     last_name = ""
