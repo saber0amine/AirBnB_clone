@@ -3,13 +3,16 @@
 console.py contains the entry point
 of the command interpreter
 """
-
+from models.base_model import BaseModel
+from models.__init__ import storage
+from models.user import User
 import cmd
 
 
 class HBNBCommand(cmd.Cmd):
     """Class for the AirBnB command interpreter"""
     prompt = "(hbnb)"
+    classes = ['BaseModel' , 'User']
 
     def do_quit(self, arg):
         """Use it to quit the interpreter"""
@@ -28,10 +31,15 @@ class HBNBCommand(cmd.Cmd):
         if arg == "":
             print("** class name missing **")
         elif arg == "BaseModel":
-            from models.base_model import BaseModel
             new_instance = BaseModel()
             new_instance.save()
             print(new_instance.id)
+        
+        elif arg == "User":
+            new_instance = User()
+            new_instance.save()
+            print(new_instance.id)
+                       
         else:
             print("** class doesn't exist **")
 
@@ -42,9 +50,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif arguments[0] == "BaseModel" and arguments[1]:
+        elif arguments[0] in HBNBCommand.classes and arguments[1]:
             found = False
-            from models import storage
             all_objects = storage.all()
             for key, value in all_objects.items():
                 if value.id == arguments[1]:
@@ -63,9 +70,8 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif arguments[0] == "BaseModel" and arguments[1]:
+        elif  arguments[0] in HBNBCommand.classes and arguments[1]:
             found = False
-            from models import storage
             all_objects = storage.all()
             for key, value in all_objects.items():
                 if value.id == arguments[1]:
@@ -80,12 +86,10 @@ class HBNBCommand(cmd.Cmd):
 
     def do_all(self, arg):
         """Prints all string representations of all instances based on the class name"""
-        from models import storage
-        from models.base_model import BaseModel
         args = arg.split()
         result = []
         if len(args) != 0:
-            if args[0] != "BaseModel":
+            if args[0] not in  HBNBCommand.classes:
                 print('** class doesn\'t exist **')
                 return
             else:
@@ -102,7 +106,7 @@ class HBNBCommand(cmd.Cmd):
         arguments = arg.split()
         if len(arguments) == 0:
             print("** class name missing **")
-        elif arguments[0] == "BaseModel":
+        elif  arguments[0] in HBNBCommand.classes: 
             if len(arguments) == 1:
                 print("** instance id missing **")
             elif len(arguments) == 2:
@@ -111,7 +115,6 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
             else:
                 instance_found = False
-                from models import storage
                 all_objects = storage.all()
                 for key, value in all_objects.items():
                     if value.id == arguments[1]:

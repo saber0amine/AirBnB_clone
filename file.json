@@ -35,5 +35,24 @@
     "created_at": "2023-10-14T16:30:56.161343",
     "updated_at": "2023-10-14T16:30:56.194121",
     "__class__": "BaseModel"
+  },
+  "User.974e9ed2-f81b-4b25-93ca-4fa0551da11f": {
+    "id": "974e9ed2-f81b-4b25-93ca-4fa0551da11f",
+    "created_at": "2023-10-14T20:21:38.698949",
+    "updated_at": "2023-10-14T20:21:38.727829",
+    "first_name": "Betty",
+    "last_name": "Bar",
+    "email": "airbnb@mail.com",
+    "password": "root",
+    "__class__": "User"
+  },
+  "User.a92b060a-bab2-47da-8bb4-039099c09483": {
+    "id": "a92b060a-bab2-47da-8bb4-039099c09483",
+    "created_at": "2023-10-14T20:21:38.741831",
+    "updated_at": "2023-10-14T20:21:38.741873",
+    "first_name": "John",
+    "email": "airbnb2@mail.com",
+    "password": "root",
+    "__class__": "User"
   }
 }
