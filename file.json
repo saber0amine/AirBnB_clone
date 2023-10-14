@@ -1,0 +1,39 @@
+{
+  "BaseModel.c495be75-92fd-49c8-9ae5-f3de4b868c1b": {
+    "id": "c495be75-92fd-49c8-9ae5-f3de4b868c1b",
+    "created_at": "2023-10-13T20:44:36.337777",
+    "updated_at": "2023-10-13T20:44:36.373400",
+    "name": "lol",
+    "last_name": "saber",
+    "my_number": "25",
+    "age": "02",
+    "__class__": "BaseModel"
+  },
+  "BaseModel.ec5add5b-d553-4799-942c-11eaca0600ef": {
+    "id": "ec5add5b-d553-4799-942c-11eaca0600ef",
+    "created_at": "2023-10-13T21:34:30.408758",
+    "updated_at": "2023-10-13T21:34:30.438439",
+    "name": "Amine",
+    "last_name": "saber",
+    "my_number": 20,
+    "__class__": "BaseModel"
+  },
+  "BaseModel.c025f2fd-34ba-4ba3-873f-12dfefbf4f7f": {
+    "id": "c025f2fd-34ba-4ba3-873f-12dfefbf4f7f",
+    "created_at": "2023-10-14T13:12:10.182121",
+    "updated_at": "2023-10-14T13:12:10.207467",
+    "__class__": "BaseModel"
+  },
+  "BaseModel.5069766a-4ba5-4d4a-8e76-e1babcb89eb9": {
+    "id": "5069766a-4ba5-4d4a-8e76-e1babcb89eb9",
+    "created_at": "2023-10-14T13:12:16.459449",
+    "updated_at": "2023-10-14T13:12:16.459479",
+    "__class__": "BaseModel"
+  },
+  "BaseModel.38a44f1e-bb5b-44ba-9a41-a64c06bdfef0": {
+    "id": "38a44f1e-bb5b-44ba-9a41-a64c06bdfef0",
+    "created_at": "2023-10-14T16:30:56.161343",
+    "updated_at": "2023-10-14T16:30:56.194121",
+    "__class__": "BaseModel"
+  }
+}
