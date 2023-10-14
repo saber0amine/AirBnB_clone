@@ -14,10 +14,7 @@ class FileStorage:
     """
     __file_path = 'file.json'
     __objects = {}
-    classes = {
-        "BaseModel": BaseModel,
-        "User": User
-    }
+        
 
     def all(self):
         return FileStorage.__objects
