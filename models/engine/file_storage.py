@@ -7,14 +7,12 @@ from models.base_model import BaseModel
 from models.user import User
 
 
-
 class FileStorage:
     """
     Serializes instances to a JSON file and deserializes JSON file to instances
     """
     __file_path = 'file.json'
     __objects = {}
-        
 
     def all(self):
         return FileStorage.__objects
@@ -44,7 +42,7 @@ class FileStorage:
                 for key, value in dictofobjs.items():
                     if value['__class__'] == 'BaseModel':
                         FileStorage.__objects[key] = BaseModel(**value)
-                    elif value['__class__']  == 'User':
+                    elif value['__class__'] == 'User':
                         FileStorage.__objects[key] = User(**value)
 
         except FileNotFoundError:
