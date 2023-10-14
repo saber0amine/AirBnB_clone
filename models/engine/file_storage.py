@@ -15,9 +15,11 @@ class FileStorage:
     __objects = {}
 
     def all(self):
+        """returns all stored BaseModel objects"""
         return FileStorage.__objects
 
     def new(self, obj):
+        """adds new object"""
         key = type(obj).__name__ + '.' + obj.id
         FileStorage.__objects[key] = obj
 
