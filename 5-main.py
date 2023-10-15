@@ -4,7 +4,7 @@
 
 #!/usr/bin/python3
 from models import storage
-from models.base_model import BaseModel
+from models.place import Place
 
 all_objs = storage.all()
 print("-- Reloaded objects --")
@@ -13,7 +13,7 @@ for obj_id in all_objs.keys():
     print(obj)
 
 print("-- Create a new object --")
-my_model = BaseModel()
+my_model = Place()
 my_model.name = "Amine"
 my_model.last_name = "saber"
 my_model.my_number = 20

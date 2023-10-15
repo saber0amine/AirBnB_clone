@@ -22,9 +22,9 @@ class BaseModel:
             kwargs['created_at'] = datetime.fromisoformat(kwargs['created_at'])
             self.__dict__.update(kwargs)
         else:
-            self.id = str(uuid.uuid4())
             self.updated_at = datetime.now()
-            self.created_at = datetime.now()
+            self.created_at = datetime.now()            
+            self.id = str(uuid.uuid4())
             from .__init__ import storage
             storage.new(self)
 
