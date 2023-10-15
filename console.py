@@ -51,6 +51,21 @@ class HBNBCommand(cmd.Cmd):
             new_instance = Place()
             new_instance.save()
             print(new_instance.id)
+            
+        elif arg == "Review":
+            new_instance = Review()
+            new_instance.save()
+            print(new_instance.id)
+            
+        elif arg == "Amenity":
+            new_instance = Amenity()
+            new_instance.save()
+            print(new_instance.id)
+            
+        elif arg == "City":
+            new_instance = City()
+            new_instance.save()
+            print(new_instance.id)
                        
         else:
             print("** class doesn't exist **")
@@ -68,7 +83,7 @@ class HBNBCommand(cmd.Cmd):
             for key, value in all_objects.items():
                 if value.id == arguments[1]:
                     found = True
-                    print(f'{str(value)}')
+                    print(value.__str__)
                     break
             if found is False:
                 print("** no instance found **")
@@ -101,7 +116,7 @@ class HBNBCommand(cmd.Cmd):
         args = arg.split()
         result = []
         if len(args) != 0:
-            if args[0] != "BaseModel":
+            if args[0] not in HBNBCommand.classes:
                 print('** class doesn\'t exist **')
                 return
             else:
@@ -118,7 +133,7 @@ class HBNBCommand(cmd.Cmd):
         arguments = arg.split()
         if len(arguments) == 0:
             print("** class name missing **")
-        elif arguments[0] == "BaseModel" or arguments[0] == "User":
+        elif arguments[0] in HBNBCommand.classes:
             if len(arguments) == 1:
                 print("** instance id missing **")
             elif len(arguments) == 2:
@@ -137,6 +152,105 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
         else:
             print("** class doesn't exist **")
+            
+            
+    def do_BaseModel(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "BaseModel":
+                    print(value.__str__())         
+        else:
+                print("*** Unknown syntax")
+
+    def do_User(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "User":
+                    print(value.__str__())         
+        else:
+                print("*** Unknown syntax")    
+                
+                
+    def do_Place(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "Place":
+                    print(value.__str__())         
+        else:
+                print("*** Unknown syntax")           
+
+
+    def do_City(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "City":
+                    print(value.__str__())         
+        else:
+                print("*** Unknown syntax")
+                
+                
+    def do_State(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "State":
+                    print(value.__str__())         
+        else:
+                print("*** Unknown syntax")
+                
+                
+    def do_Review(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "Review":
+                    print(value.__str__())         
+        else:
+            print("*** Unknown syntax")
+                
+
+    def do_Amenity(self , arg):
+        """
+        Commande to print all instances of the commande Classe 
+        """
+        if self.parseline(arg)[1] == ".all()":
+            all_objects = storage.all()
+            for key , value in all_objects.items():
+                if value.__class__.__name__ == "Amenity":
+                    print(value.__str__())         
+        else:
+                print("*** Unknown syntax")
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
