@@ -1,10 +1,14 @@
 #!/usr/bin/python3
-"""class Review inherits from BaseModel"""
-from models.base_model import BaseModel
+"""
+Defines the state model
+"""
+from .base_model import BaseModel
+
 
 class Review(BaseModel):
-    """class Review that inherits from BaseModel"""
-
-    place_id= "" #Place.id
-    user_id= "" #User.id
-    text=  ""
+    """
+    Blueprint for Review objects
+    """
+    user_id = ""
+    place_id = ""
+    text = ""

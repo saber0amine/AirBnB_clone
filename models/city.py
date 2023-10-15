@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-"""class City inherits from BaseModel"""
-from models.base_model import BaseModel
+"""
+Defines the state model
+"""
+from .base_model import BaseModel
+
 
 class City(BaseModel):
-    """class City that inherits from BaseModel"""
-
+    """
+    Blueprint for City objects
+    """
     state_id = ""
     name = ""
