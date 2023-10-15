@@ -5,6 +5,12 @@ Serializes instances to a JSON file and deserializes JSON file to instances
 import json
 from models.base_model import BaseModel
 from models.user import User
+from models.user import User
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+from models.city import City
+from models.state import State
 
 
 class FileStorage:
@@ -40,12 +46,27 @@ class FileStorage:
         try:
             with open(FileStorage.__file_path, 'r') as f:
                 dictofobjs = json.loads(f.read())
-                from models.base_model import BaseModel
                 for key, value in dictofobjs.items():
                     if value['__class__'] == 'BaseModel':
                         FileStorage.__objects[key] = BaseModel(**value)
+                        
                     elif value['__class__'] == 'User':
                         FileStorage.__objects[key] = User(**value)
+                        
+                    elif value['__class__'] == 'Place':
+                        FileStorage.__objects[key] = Place(**value)
+                    
+                    elif value['__class__'] == 'Amenity':
+                        FileStorage.__objects[key] = Amenity(**value)
+
+                    elif value['__class__'] == 'City':
+                        FileStorage.__objects[key] = City(**value)
+                        
+                    elif value['__class__'] == 'Review':
+                        FileStorage.__objects[key] = User(**value)
+                        
+                    elif value['__class__'] == 'State':
+                        FileStorage.__objects[key] = State(**value)
 
         except FileNotFoundError:
             pass

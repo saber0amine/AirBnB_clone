@@ -14,8 +14,8 @@ for obj_id in all_objs.keys():
 
 print("-- Create a new object --")
 my_model = Place()
-my_model.name = "Amine"
-my_model.last_name = "saber"
-my_model.my_number = 20
+my_model.name = "Berrchid"
+my_model.last_name = "PLace"
+my_model.my_number = 200
 my_model.save()
 print(my_model)

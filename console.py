@@ -3,15 +3,22 @@
 console.py contains the entry point
 of the command interpreter
 """
+import cmd
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
-import cmd
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
+from models.city import City
+from models.state import State
 
 
 class HBNBCommand(cmd.Cmd):
     """Class for the AirBnB command interpreter"""
     prompt = "(hbnb)"
+    classes = ['BaseModel', 'User', 'Place', 'State',
+               'City', 'Amenity', 'Review']
     
 
     def do_quit(self, arg):
@@ -39,6 +46,11 @@ class HBNBCommand(cmd.Cmd):
             new_instance = User()
             new_instance.save()
             print(new_instance.id)
+            
+        elif arg == "Place":
+            new_instance = Place()
+            new_instance.save()
+            print(new_instance.id)
                        
         else:
             print("** class doesn't exist **")
@@ -50,7 +62,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif arguments[0] == "BaseModel" or arguments[0] =="User" and arguments[1]:
+        elif arguments[0] in HBNBCommand.classes and arguments[1]:
             found = False
             all_objects = storage.all()
             for key, value in all_objects.items():
@@ -58,7 +70,7 @@ class HBNBCommand(cmd.Cmd):
                     found = True
                     print(f'{str(value)}')
                     break
-            if not found:
+            if found is False:
                 print("** no instance found **")
         else:
             print("** class doesn't exist **")
@@ -70,7 +82,7 @@ class HBNBCommand(cmd.Cmd):
             print("** class name missing **")
         elif len(arguments) == 1:
             print("** instance id missing **")
-        elif arguments[0] == "BaseModel" and arguments[1]:
+        elif arguments[0] in HBNBCommand.classes and arguments[1]:
             found = False
             all_objects = storage.all()
             for key, value in all_objects.items():
