@@ -1,12 +1,9 @@
 #!/usr/bin/python3
-"""
-Defines the state model
-"""
-from .base_model import BaseModel
+"""defining amenity module"""
+from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """
-    Blueprint for Amenity objects
-    """
+    """class Amenity inherting from BaseModel"""
+
     name = ""

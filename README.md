@@ -1,43 +1,139 @@
-# AirBnB_clone
+# 0x00. AirBnB clone - The console
 
-<img src="https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2018/6/65f4a1dd9c51265f49d0.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20231010%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231010T171251Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=92c01b38d22652d95a51ce86948a1318c274d21cac3f49674d0abc35f7f8a3a7" >
+---
 
-## Description
+This project is the first step towards building a full web application: the **AirBnB clone**.
 
-we won’t implement all the features of the AirBnb , only some of them to cover all fundamental concepts of the higher level programming track.
+The console or command interpreter create the data model and allows create, update, destroy, store and persist objects to a file (JSON file). This console will be a tool to validate this storage engine.
 
-After 4 months INSHAALAAH, we will have a complete web application composed by:
+## Table of Contents
 
-1- A command interpreter to manipulate data without a visual interface, like in a Shell (perfect for development and debugging)
-2- A website (the front-end) that shows the final product to everybody: static and dynamic
-3- A database or files that store data (data = objects)
-4- An API that provides a communication interface between the front-end and your data (retrieve, create, delete, update them)
+---
 
-## Authors
+* Objectives
+* Requirements
+* Installation and execution
+* Console commands
+* Tests
+* Development environment
+* Authors
 
-- AMINE SABER <saberamine000@gmail.com>
-- Mohammed Ouadia <ouadia.mohammed@outlook.de>
+## Objectives
+
+---
+
+* How to create a Python package
+* How to create a command interpreter in Python using the `cmd module`
+* What is Unit testing and how to implement it in a large project
+* How to serialize and deserialize a `Class`
+* How to write and read a JSON file
+* How to manage `datetime`
+* What is an `UUID`
+* What is `*args` and how to use it
+* What is `**kwargs` and how to use it
+* How to handle named arguments in a function
+
+## Requirements 
+
+---
+
+Airbnb was built and tested in **Ubuntu 14.04 LTS** via Vagrant in VirtualBox. Programming language python3
+
+## Installation and execution 
+
+---
+
+* Clone the repository
+
+> $ git clone https://github.com/ahmadoa/AirBnB_clone.git
+
+* Move into the directory
+
+> $ cd AirBnB_clone
+
+* Execute the console file
+
+> /AirBnB_clone$ ./console.py
 
 
-## Command Interpreter
-After starting ...
+## How to Use Command Interpreter
 
-## Getting Started
-After starting ...
+---
+
+The commands available for this command interpreter are:
+
+| Name      | Sample usage                               | Description                                 |
+| --------- | ------------------------------------------ | ------------------------------------------- |
+| `help`    | `help`                                     | Displays all commands available             |
+| `create`  | `create <class>`                           | Creates new object (ex. a new User, Place)  |
+| `update`  | `User.update('123', {'name' : 'Michael'})` | Updates attribute of an object              |
+| `destroy` | `User.destroy('123')`                      | Destroys specified object                   |
+| `show`    | `User.show('123')`                         | Retrieves an object from a file, a database |
+| `all`     | `User.all()`                               | Displays all objects in Class               |
+| `count`   | `User.count()`                             | Returns count of objects in specified Class |
+| `EOF`     | `ctrl D`                                   | Exits the console.                          |
+| `quit`    | `quit`                                     | Exits the Console                           |
+
+***create, destroy and update commands save changes into a JSON file.***
+
+## Tests ⚙️
+
+---
+
+Interactive Mode
+
+```
+$ ./console.py
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+
+(hbnb)
+(hbnb)
+(hbnb) quit
+$
+```
+
+Non-Interactive Mode
+
+```
+$ echo "help" | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+$ cat test_help
+help
+$
+$ cat test_help | ./console.py
+(hbnb)
+
+Documented commands (type help <topic>):
+========================================
+EOF  help  quit
+(hbnb)
+$
+```
 
 
-### Installation
-After starting ...
 
+### Development Environment
 
-### Usage
-After starting ...
+------
 
+* Language: **Python3**
 
-### Examples
-After starting ...
+* Operating System: **Ubuntu 14.04 LTS**
+* Style guidelines: [PEP 8 (version 1.7)](https://www.python.org/dev/peps/pep-0008/) \|| [Google Style Python Docstrings](http://sphinxcontrib-napoleon.readthedocs.io/en/l\atest/example_google.html)
 
+### Authors✒️
 
+---
 
-
-
+* [Ahmad Ouladaouid](https://github.com/ahmadoa) Software Engineering student at [ALX Africa]([ALX Africa - Power Your Future in Tech](https://www.alxafrica.com/))
+* [Michael Kazembe](https://github.com/MichaelKazembe) - Software Engineering student at [ALX Africa]([ALX Africa - Power Your Future in Tech](https://www.alxafrica.com/))
